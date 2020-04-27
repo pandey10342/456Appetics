@@ -210,16 +210,26 @@ ons.ready(function() {
 	
 });
 /*END ONSEN*/
-var admobid = {
+/*var admobid = {
 banner: 'ca-app-pub-6871330764548204/6787711262',
 autoShow:true
-};
+};*/
 /*CORDOVA DEVICE READY*/
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady(){
 	try {
-		AdMob.createBanner(admobid);
+		//AdMob.createBanner(admobid);
+		
+		admob.banner.config({
+id: 'ca-app-pub-6871330764548204/6787711262',
+isTesting: false
+})
+admob.banner.prepare().then(function () {
+return admob.banner.show()
+}).catch(function (e){
+console.log(e)
+})
 		navigator.splashscreen.hide();	
 		device_uiid = device.uuid;
 		device_platform = device.platform;		
