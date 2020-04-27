@@ -218,7 +218,7 @@ autoShow:true
 function bannerAd(){
 			admob.banner.config({
 id: 'ca-app-pub-6871330764548204/6787711262',
-isTesting: true
+isTesting: false
 })
 admob.banner.prepare().then(function () {
 return admob.banner.show()
